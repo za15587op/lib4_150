@@ -22,6 +22,7 @@ class _homePageState extends State<homePage> {
       ),
       body: Column(
         children: [
+          // radioMenuList("ก๋วยเตี้ยว","+10 บาท","50 บาท"),
           RadioListTile(
               value: "ก๋วยเตี้ยว",
               title: Text("ก๋วยเตี้ยว"),
@@ -136,5 +137,28 @@ class _homePageState extends State<homePage> {
         ],
       ),
     );
+
+    
   }
+
+  RadioListTile<String> radioMenuList(String secon, String title, String sub) {
+    return RadioListTile(
+            activeColor: Color.fromARGB(255, 255, 176, 176),
+            secondary: Text(secon),
+            selected: false,
+            selectedTileColor: Colors.amber,
+            tileColor: Color.fromARGB(255, 243, 228, 205),
+            title: Text(title),
+            subtitle: Text(sub),
+            value: title,
+            groupValue: foodRadio,
+            onChanged: (value) {
+              setState(() {
+                foodRadio = value!;
+              });
+              print(foodRadio);
+            },
+          );
+  }
+
 }
